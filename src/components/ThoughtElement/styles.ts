@@ -23,7 +23,6 @@ export default StyleSheet.create({
         borderColor: '#DCDCDC',
     },
     textContainer: {
-        marginRight: 15,
         marginLeft: 10,
         flexDirection: 'column'
     },

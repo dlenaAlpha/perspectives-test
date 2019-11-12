@@ -12,7 +12,7 @@ import { ScreenEnum } from '../../common/navigation';
 import { withNavigation } from 'react-navigation';
 import { COLOR_PALETTE } from '../../common/constants';
 
-interface IThoughtElementState {
+export interface IThoughtElementProps {
     thought: IThought;
     navigation: any;
     renderType: RenderType
@@ -23,7 +23,7 @@ export enum RenderType {
     ARROW_LEFT_SIDE
 }
 
-class ThoughtElement extends React.Component<IThoughtElementState> {
+export class ThoughtElement extends React.Component<IThoughtElementProps> {
 
     private onPress = () => {
         switch (this.props.renderType) {
@@ -64,7 +64,7 @@ class ThoughtElement extends React.Component<IThoughtElementState> {
             </View>
             <View style={{ ...styles.detailContainer, borderWidth: 1 }}>
                 <TouchableOpacity style={styles.touchableContainer} onPress={this.onPress}>
-                    <View style={{ ...styles.textContainer, width: '70%' }}>
+                    <View style={{ ...styles.textContainer, width: '70%', marginRight: 15 }}>
                         <Text style={styles.titleText}>{this.props.thought.title}</Text>
                         <Text style={styles.dateText}>{unixDateToString(this.props.thought.createdUTC)}</Text>
                     </View>
