@@ -1,6 +1,5 @@
-# Perspective test mobile app
+# Perspectives code challenge mobile app
 
-Code challenge for posts display. 
 Built using `Expo`.
 
 ## Installing and running
