@@ -1,6 +1,6 @@
-import { Thought, Mood } from './model'
+import { IThought, Mood } from './model'
 
-export const mockedThoughList: Thought[] = [
+export const mockedThoughList: IThought[] = [
     {
         id: 1,
         title: 'I need to think more what the other person is feeling',

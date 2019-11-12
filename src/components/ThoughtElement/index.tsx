@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 import { moodToIcon, unixDateToString } from '../../common/utils';
-import { Thought } from '../../common/model';
+import { IThought } from '../../common/model';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 // @ts-ignore
 import RightArrow from '../../../assets/icons/arrow_right.svg'
@@ -12,8 +12,8 @@ import { ScreenEnum } from '../../common/navigation';
 import { withNavigation } from 'react-navigation';
 import { COLOR_PALETTE } from '../../common/constants';
 
-interface ThoughtElementState {
-    thought: Thought;
+interface IThoughtElementState {
+    thought: IThought;
     navigation: any;
     renderType: RenderType
 }
@@ -23,16 +23,22 @@ export enum RenderType {
     ARROW_LEFT_SIDE
 }
 
-class ThoughtElement extends React.Component<ThoughtElementState> {
+class ThoughtElement extends React.Component<IThoughtElementState> {
 
-    onPress = () => {
-        if (this.props.renderType === RenderType.ARROW_RIGHT_SIDE)
-            this.props.navigation.navigate(ScreenEnum.ThoughtDetail, { thought: this.props.thought })
-        if (this.props.renderType === RenderType.ARROW_LEFT_SIDE)
-            this.props.navigation.navigate(ScreenEnum.MainTab)
+    private onPress = () => {
+        switch (this.props.renderType) {
+            case RenderType.ARROW_RIGHT_SIDE: {
+                this.props.navigation.navigate(ScreenEnum.ThoughtDetail, { thought: this.props.thought })
+                break;
+            }
+            case RenderType.ARROW_LEFT_SIDE: {
+                this.props.navigation.navigate(ScreenEnum.MainTab)
+                break;
+            }
+        }
     }
 
-    renderArrowLeftSide = () => (
+    private renderArrowLeftSide = () => (
         <View style={styles.container}>
             <TouchableOpacity style={styles.touchableContainer} onPress={this.onPress}>
                 <View style={styles.leftArrowContainer}>
@@ -51,7 +57,7 @@ class ThoughtElement extends React.Component<ThoughtElementState> {
         </View>
     )
 
-    renderArrowRightSide = () => (
+    private renderArrowRightSide = () => (
         <View style={styles.container}>
             <View style={styles.iconContainer}>
                 {moodToIcon(this.props.thought.mood, COLOR_PALETTE.DETAIL_BACKGROUND)}
@@ -70,7 +76,7 @@ class ThoughtElement extends React.Component<ThoughtElementState> {
         </View>
     )
 
-    render = () => {
+    public render = () => {
         switch (this.props.renderType) {
             case RenderType.ARROW_LEFT_SIDE:
                 return this.renderArrowLeftSide();

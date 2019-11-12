@@ -2,22 +2,22 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 import { DISPLAY_TEXT } from '../../common/constants';
-import { Thought } from '../../common/model';
+import { IThought } from '../../common/model';
 import ThoughtElement, { RenderType } from '../../components/ThoughtElement';
 
-interface ThoughtDetailState {
-    thought?: Thought
+interface IThoughtDetailState {
+    thought?: IThought
 }
 
-class ThoughtDetail extends React.Component<{ navigation: any }, ThoughtDetailState> {
+class ThoughtDetail extends React.Component<{ navigation: any }, IThoughtDetailState> {
 
     constructor(props) {
         super(props)
         this.state = { thought: null }
     }
 
-    componentDidMount = () => {
-        const thought: Thought = this.props.navigation &&
+    public componentDidMount = () => {
+        const thought: IThought = this.props.navigation &&
             this.props.navigation.state &&
             this.props.navigation.state.params &&
             this.props.navigation.state.params.thought;
@@ -28,7 +28,7 @@ class ThoughtDetail extends React.Component<{ navigation: any }, ThoughtDetailSt
         }
     }
 
-    render = () => (
+    public render = () => (
         this.state.thought ?
             (<View style={styles.container}>
                 <View style={styles.thoughtTitleSection}>

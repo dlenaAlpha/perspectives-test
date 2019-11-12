@@ -1,4 +1,4 @@
-export interface Thought {
+export interface IThought {
     id: number;
     title: string;
     explanation: string;

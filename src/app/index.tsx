@@ -14,7 +14,7 @@ export const withFontsLoaded = (Component: React.ComponentClass) => (
             this.state = { fontLoaded: false }
         }
 
-        componentDidMount = async () => {
+        public componentDidMount = async () => {
             await loadAsync({
                 [FONT_PALETTE.OPEN_SANS_BOLD]: require('../../assets/fonts/OpenSans-Bold.ttf'),
                 [FONT_PALETTE.OPEN_SANS]: require('../../assets/fonts/OpenSans-Regular.ttf')
@@ -22,9 +22,10 @@ export const withFontsLoaded = (Component: React.ComponentClass) => (
             this.setState({ fontLoaded: true });
         }
 
-        render = () => {
-            if (this.state.fontLoaded)
+        public render = () => {
+            if (this.state.fontLoaded) {
                 return <Component />;
+            }
             return null;
         }
     }

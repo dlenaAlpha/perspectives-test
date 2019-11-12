@@ -3,27 +3,27 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { COLOR_PALETTE } from '../../common/constants';
 
-interface TabComponentProps {
-    tabs: {
+interface ITabComponentProps {
+    tabs: Array<{
         text: string;
         icon: (colorFill?: string) => JSX.Element;
         tabContent?: () => JSX.Element;
-    }[];
+    }>;
 }
-interface TabComponentState {
+interface ITabComponentState {
     selectedTab: number;
 }
 
-class TabComponent extends React.Component<TabComponentProps, TabComponentState> {
+class TabComponent extends React.Component<ITabComponentProps, ITabComponentState> {
 
     constructor(props) {
         super(props)
         this.state = { selectedTab: 2 }
     }
 
-    selectTab = (id: number) => this.setState({ selectedTab: id })
+    private selectTab = (id: number) => this.setState({ selectedTab: id })
 
-    render = () => {
+    public render = () => {
         const TabContent = this.props.tabs[this.state.selectedTab].tabContent;
         return (
             <View style={styles.container}>
