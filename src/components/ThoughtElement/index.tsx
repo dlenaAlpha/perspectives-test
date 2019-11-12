@@ -43,12 +43,10 @@ class ThoughtElement extends React.Component<ThoughtElementState> {
                 </View>
             </TouchableOpacity>
             <View style={styles.detailContainer}>
-                {/* <TouchableOpacity style={styles.touchableContainer} onPress={this.onPress}> */}
                 <View style={styles.textContainer}>
                     <Text style={styles.titleText}>{this.props.thought.title}</Text>
                     <Text style={styles.dateText}>{unixDateToString(this.props.thought.createdUTC)}</Text>
                 </View>
-                {/* </TouchableOpacity> */}
             </View>
         </View>
     )
@@ -60,7 +58,7 @@ class ThoughtElement extends React.Component<ThoughtElementState> {
             </View>
             <View style={{ ...styles.detailContainer, borderWidth: 1 }}>
                 <TouchableOpacity style={styles.touchableContainer} onPress={this.onPress}>
-                    <View style={styles.textContainer}>
+                    <View style={{ ...styles.textContainer, width: '70%' }}>
                         <Text style={styles.titleText}>{this.props.thought.title}</Text>
                         <Text style={styles.dateText}>{unixDateToString(this.props.thought.createdUTC)}</Text>
                     </View>

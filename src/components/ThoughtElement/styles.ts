@@ -23,11 +23,12 @@ export default StyleSheet.create({
         borderColor: '#DCDCDC',
     },
     textContainer: {
-        marginRight: 19,
-        marginLeft: 20,
+        marginRight: 15,
+        marginLeft: 10,
         flexDirection: 'column'
     },
     touchableContainer: {
+        flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
@@ -46,9 +47,9 @@ export default StyleSheet.create({
         shadowColor: '#ffff'
     },
     rightArrowContainer: {
-        marginRight: 15
+        marginRight: 0
     },
     leftArrowContainer: {
-        marginRight: 5
+        marginRight: 10
     }
 });

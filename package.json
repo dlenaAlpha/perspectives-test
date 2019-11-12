@@ -31,17 +31,11 @@
     "jest-environment-enzyme": "^7.0.2",
     "jest-enzyme": "^7.0.2",
     "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.11.0",
     "typescript": "^3.4.5"
   },
   "private": true,
   "jest": {
-    "presets": [
-      "react-native"
-    ],
-    "setupTestFrameworkScriptFile": "jest-enzyme",
-    "testEnvironment": "enzyme",
-    "testEnvironmentOptions": {
-      "enzymeAdapter": "react16"
-    }
+    "preset": "react-native"
   }
 }
